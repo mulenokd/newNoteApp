@@ -77,11 +77,9 @@
 		C46989B2215B2EB40036F080 /* newNoteApp */ = {
 			isa = PBXGroup;
 			children = (
-				C46989B3215B2EB40036F080 /* AppDelegate.swift */,
-				C46989B5215B2EB40036F080 /* ViewController.swift */,
-				C46989B7215B2EB40036F080 /* Main.storyboard */,
+				C46989D4215B31380036F080 /* Model */,
+				C46989D3215B312D0036F080 /* UI */,
 				C46989BA215B2EB40036F080 /* Assets.xcassets */,
-				C46989BC215B2EB40036F080 /* LaunchScreen.storyboard */,
 				C46989BF215B2EB40036F080 /* Info.plist */,
 			);
 			path = newNoteApp;
@@ -94,6 +92,24 @@
 				C46989CA215B2EB40036F080 /* Info.plist */,
 			);
 			path = newNoteAppTests;
+			sourceTree = "<group>";
+		};
+		C46989D3215B312D0036F080 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C46989B5215B2EB40036F080 /* ViewController.swift */,
+				C46989B7215B2EB40036F080 /* Main.storyboard */,
+				C46989BC215B2EB40036F080 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C46989D4215B31380036F080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C46989B3215B2EB40036F080 /* AppDelegate.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
