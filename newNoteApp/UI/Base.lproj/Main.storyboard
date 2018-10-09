@@ -100,9 +100,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTextOutput" destination="4SW-Xx-Zwm" id="cjJ-zz-Ca5"/>
+                        <segue destination="jcZ-Di-MM8" kind="unwind" identifier="unwindToMain" unwindAction="prepareForUnwindWithSegue:" id="oSY-rS-ySn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsk-DT-zwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jcZ-Di-MM8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2165.625" y="110.91549295774648"/>
         </scene>
