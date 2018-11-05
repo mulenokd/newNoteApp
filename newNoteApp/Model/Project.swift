@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class NoteList {
+public class Project {
     
     private var notes : [Note]{
         set{
@@ -21,7 +21,6 @@ public class NoteList {
             if let objects = UserDefaults.standard.value(forKey: "notesData") as? Data {
                 let decoder = JSONDecoder()
                 if let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Note] {
-                    print(objectsDecoded)
                     return objectsDecoded
                 } else {
                     return []
@@ -44,8 +43,8 @@ public class NoteList {
         return newDate
     }
     
-    func AddNote(detailText: String){
-        let note = Note(dateCreated: NewDate(), dateModified: NewDate(), detailText: detailText)
+    func AddNote(name: String, detailText: String){
+        let note = Note(name: name, dateCreated: NewDate(), dateModified: NewDate(), detailText: detailText)
         self.notes.append(note)
     }
     
@@ -57,8 +56,8 @@ public class NoteList {
         return notes[index]
     }
     
-    func EditNote(detailText: String, index:Int){
-        notes[index] = Note(dateCreated: NewDate(), dateModified: NewDate(), detailText: detailText)
+    func EditNote(name: String, detailText: String, index:Int){
+        notes[index] = Note(name: name, dateCreated: NewDate(), dateModified: NewDate(), detailText: detailText)
     }
     
     func RemoveNote(at index: Int){

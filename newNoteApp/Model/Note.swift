@@ -10,8 +10,10 @@ import Foundation
 
 struct Note : Codable{
     
+    var name: String
     var dateCreated: String
     var dateModified: String
     var detailText: String
+//    var category : NoteCategory
     
 }

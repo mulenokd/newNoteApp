@@ -15,7 +15,9 @@
 		F634C9CC215CDC0100BADB1D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F634C9CB215CDC0100BADB1D /* TableViewController.swift */; };
 		F634C9CE215E0A4B00BADB1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F634C9CD215E0A4B00BADB1D /* ViewController.swift */; };
 		F6B81624215BDD43005201FC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81623215BDD43005201FC /* Note.swift */; };
-		F6B81635215BF21B005201FC /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81634215BF21B005201FC /* NoteList.swift */; };
+		F6B81635215BF21B005201FC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81634215BF21B005201FC /* Project.swift */; };
+		F6DF298B216F705800BC4262 /* NoteCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF298A216F705800BC4262 /* NoteCategory.swift */; };
+		F6DF298D216F707000BC4262 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF298C216F707000BC4262 /* ProjectManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,9 @@
 		F634C9CB215CDC0100BADB1D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F634C9CD215E0A4B00BADB1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6B81623215BDD43005201FC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		F6B81634215BF21B005201FC /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		F6B81634215BF21B005201FC /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		F6DF298A216F705800BC4262 /* NoteCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCategory.swift; sourceTree = "<group>"; };
+		F6DF298C216F707000BC4262 /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +121,9 @@
 			children = (
 				C46989B3215B2EB40036F080 /* AppDelegate.swift */,
 				F6B81623215BDD43005201FC /* Note.swift */,
-				F6B81634215BF21B005201FC /* NoteList.swift */,
+				F6DF298A216F705800BC4262 /* NoteCategory.swift */,
+				F6B81634215BF21B005201FC /* Project.swift */,
+				F6DF298C216F707000BC4262 /* ProjectManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +239,9 @@
 				F634C9CE215E0A4B00BADB1D /* ViewController.swift in Sources */,
 				C46989B4215B2EB40036F080 /* AppDelegate.swift in Sources */,
 				F6B81624215BDD43005201FC /* Note.swift in Sources */,
-				F6B81635215BF21B005201FC /* NoteList.swift in Sources */,
+				F6DF298B216F705800BC4262 /* NoteCategory.swift in Sources */,
+				F6B81635215BF21B005201FC /* Project.swift in Sources */,
+				F6DF298D216F707000BC4262 /* ProjectManager.swift in Sources */,
 				F634C9CC215CDC0100BADB1D /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

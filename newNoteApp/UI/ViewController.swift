@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITextViewDelegate
 {
     @IBOutlet weak var detailTextOutput: UITextView!
+    @IBOutlet weak var nameTextInput: UITextField!
     
-    var notes = NoteList()
+    var notes = Project()
+    var note: Note = Note(name: "", dateCreated: "", dateModified: "", detailText: "")
+    var myIndex: Int = 0
     
     override func viewWillDisappear(_ animated : Bool){
         if isEdit{
@@ -28,20 +31,48 @@ class ViewController: UIViewController
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if detailTextOutput.textColor == UIColor.lightGray {
+            detailTextOutput.text = nil
+            detailTextOutput.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if detailTextOutput.text.isEmpty {
+            detailTextOutput.text = "Запишите что-нибудь!"
+            detailTextOutput.textColor = UIColor.lightGray
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailTextOutput.delegate = self
+        print(note)
+        print(myIndex)
         if isEdit{
             let currentNote = notes.GetNoteByIndex(index: myIndex)
-            detailTextOutput.text = currentNote.detailText
+            nameTextInput.text = currentNote.name
+            
+            if currentNote.detailText == ""{
+                detailTextOutput.text = "Запишите что-нибудь!"
+                detailTextOutput.textColor = UIColor.lightGray
+            }
+            else{
+                detailTextOutput.text = currentNote.detailText
+            }
+            
+        }else{
+            detailTextOutput.text = "Запишите что-нибудь!"
+            detailTextOutput.textColor = UIColor.lightGray
         }
     }
     
     @IBAction func actionAddNote(_ sender: Any) {
         if isEdit{
-            if detailTextOutput.text.trimmingCharacters(in: .whitespacesAndNewlines) != ""{
-                notes.EditNote(detailText: detailTextOutput.text, index: myIndex)
+            if nameTextInput.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""{
+//                note = Note(name: nameTextInput.text!, dateCreated: "", dateModified: "", detailText: "")
+                notes.EditNote(name: nameTextInput.text!, detailText: detailTextOutput.text, index: myIndex)
                 Alert(title: "Отлично!", message: "Заметка отредактирована")
-                
             }
             else{
                 notes.RemoveNote(at: myIndex)
@@ -49,15 +80,19 @@ class ViewController: UIViewController
             }
         }
         else{
-            if detailTextOutput.text.trimmingCharacters(in: .whitespacesAndNewlines) != ""{
-                notes.AddNote(detailText: detailTextOutput.text)
+            if nameTextInput.text!.trimmingCharacters(in: .whitespacesAndNewlines) != ""{
+                if detailTextOutput.text == "Запишите что-нибудь!"{
+                    notes.AddNote(name: nameTextInput.text!, detailText: "")
+                }
+                else{
+                    notes.AddNote(name: nameTextInput.text!, detailText: detailTextOutput.text)
+                }
                 isEdit = true
                 let arNotes = self.notes.GetList()
                 myIndex = arNotes.endIndex - 1
                 Alert(title: "Отлично!", message: "Заметка добавлена")
             }
         }
-//        self.view.endEditing(true)
     }
     
 }

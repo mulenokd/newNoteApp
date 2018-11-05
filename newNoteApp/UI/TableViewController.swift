@@ -7,13 +7,12 @@
 //
 
 import UIKit
-
-var myIndex = 0
 var isEdit = false
 
 class TableViewController: UITableViewController, UISearchBarDelegate {
     
-    var notes = NoteList()
+    var notes = Project()
+    var myIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let currentNote = notes.GetNoteByIndex(index: indexPath.row)
-        cell.textLabel?.text = currentNote.detailText
+        cell.textLabel?.text = currentNote.name
         cell.detailTextLabel?.text = currentNote.dateModified
         
         return cell
@@ -67,7 +66,9 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        let destinationVC = segue.destination as! ViewController
+        destinationVC.note = notes.GetNoteByIndex(index: myIndex)
+        destinationVC.myIndex = myIndex
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
