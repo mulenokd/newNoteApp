@@ -8,8 +8,14 @@
 
 import Foundation
 
-enum NoteCategory {
+enum NoteCategory: String, Codable {
     
-    case work, home, health, people, documents, finances, other
+    case work
+    case home
+    case health
+    case people
+    case documents
+    case finances
+    case other
     
 }

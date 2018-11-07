@@ -8,12 +8,22 @@
 
 import Foundation
 
-struct Note : Codable{
+struct Note: Codable {
     
     var name: String
     var dateCreated: String
     var dateModified: String
     var detailText: String
-//    var category : NoteCategory
+    var category : NoteCategory
+    
+    init(name: String, dateCreated: String, dateModified: String, detailText: String, category : NoteCategory){
+        
+        self.name = name
+        self.dateCreated = dateCreated
+        self.dateModified = dateModified
+        self.detailText = detailText
+        self.category = category
+        
+    }
     
 }
