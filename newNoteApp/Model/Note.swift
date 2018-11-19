@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Note: Codable {
+public class Note: Codable {
     
     var name: String
     var dateCreated: String

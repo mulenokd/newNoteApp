@@ -11,14 +11,13 @@ import UIKit
 class TableViewController: UITableViewController, UISearchBarDelegate {
     
     var notes = [Note]()
-    var project = Project()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        notes = ProjectManager().loadData()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        print(notes)
-        notes.append(Note(name: "T##String", dateCreated: "T##String", dateModified: "T##String", detailText: "T##String", category: NoteCategory(rawValue: "work")!))
-        print(notes)
-        ProjectManager().saveData()
+        
     }
     
     override func viewWillAppear(_ animated : Bool){
@@ -27,15 +26,14 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return notes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        let currentNote = notes[indexPath.row]
-//        cell.textLabel?.text = currentNote.name
-//        cell.detailTextLabel?.text = currentNote.dateModified
-        
+        let currentNote = notes[indexPath.row]
+        cell.textLabel?.text = currentNote.name
+        cell.detailTextLabel?.text = currentNote.dateModified
         return cell
     }
 
@@ -44,12 +42,11 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            notes.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//
-//        }
+        if editingStyle == .delete {
+            notes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            ProjectManager().saveData(notes: notes)
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String{
@@ -57,14 +54,23 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "detailNote") as! ViewController
+        secondVC.note = notes[indexPath.row]
+        secondVC.isEdit = true
+        present(secondVC, animated: true)
         
     }
     
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    @IBAction func actionNewNote(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "detailNote") as! ViewController
+        secondVC.modalPresentationStyle = UIModalPresentationStyle.none
+        present(secondVC, animated: true)
         
     }
+    
 }

@@ -7,28 +7,24 @@
 //
 
 import Foundation
-public class ProjectManager : Project{
+public class ProjectManager {
     
-    func saveData(){
+    func saveData(notes: [Note]){
         
-        UserDefaults.standard.set(notes, forKey: "notesData")
-        UserDefaults.standard.synchronize()
-        
-        print(notes)
-        print("data was saved")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(notes){
+            UserDefaults.standard.set(encoded, forKey: "notesData")
+            UserDefaults.standard.synchronize()
+        }
         
     }
     
-    func loadData(){
+    func loadData() -> [Note]{
         
-        if let array = UserDefaults.standard.array(forKey: "notesData") as? [Note]{
-            notes = array
-        }else{
-            notes = []
-        }
-        
-        print(notes)
-        print("data was loaded")
+        guard let objects = UserDefaults.standard.value(forKey: "notesData") as? Data else { return [] }
+        let decoder = JSONDecoder()
+        guard let objectsDecoded = try? decoder.decode(Array.self, from: objects) as [Note] else { return [] }
+        return objectsDecoded
         
     }
     
