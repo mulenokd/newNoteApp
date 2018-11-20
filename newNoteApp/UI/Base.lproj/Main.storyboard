@@ -13,13 +13,13 @@
         <scene sceneID="bIt-6z-Zh2">
             <objects>
                 <tableViewController storyboardIdentifier="mainView" id="O0O-Xa-adT" customClass="TableViewController" customModule="newNoteApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CiC-FI-7ZX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="CiC-FI-7ZX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="xfd-Mw-Te4" detailTextLabel="7fk-b0-sey" style="IBUITableViewCellStyleSubtitle" id="E1W-2Q-Xco">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E1W-2Q-Xco" id="PJb-4l-mqi">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -84,38 +84,41 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Название заметки" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZBC-pf-igH">
-                                        <rect key="frame" x="8" y="46" width="160" height="21"/>
+                                        <rect key="frame" x="8" y="75" width="160" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4R-Xj-dM2">
-                                        <rect key="frame" x="8" y="8" width="45" height="30"/>
+                                        <rect key="frame" x="8" y="26" width="53" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Назад"/>
                                         <connections>
                                             <action selector="actionBack:" destination="849-TP-Nc8" eventType="touchUpInside" id="R7A-eJ-FvX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXq-xb-T2Q">
-                                        <rect key="frame" x="89" y="8" width="142" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Выбрать категорию"/>
-                                        <connections>
-                                            <action selector="actionSelectCategory:" destination="849-TP-Nc8" eventType="touchUpInside" id="Szs-ke-Vb9"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVy-j2-lh6">
-                                        <rect key="frame" x="264" y="8" width="48" height="30"/>
+                                        <rect key="frame" x="258" y="21" width="54" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Готово"/>
                                         <connections>
                                             <action selector="actionSetNote:" destination="849-TP-Nc8" eventType="touchUpInside" id="tS2-5n-cZW"/>
                                         </connections>
                                     </button>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2D-vd-gXt">
+                                        <rect key="frame" x="91" y="8" width="139" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.76470588240000004" green="0.015686274510000001" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="849-TP-Nc8" id="MTX-Le-RNX"/>
+                                            <outlet property="delegate" destination="849-TP-Nc8" id="4oZ-8D-ePl"/>
+                                        </connections>
+                                    </pickerView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4SW-Xx-Zwm">
-                                        <rect key="frame" x="8" y="75" width="304" height="198"/>
+                                        <rect key="frame" x="8" y="104" width="304" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -128,6 +131,7 @@
                         <viewLayoutGuide key="safeArea" id="UIy-I3-LdN"/>
                     </view>
                     <connections>
+                        <outlet property="actionSelectCategory" destination="a2D-vd-gXt" id="8Wx-Fo-Pdj"/>
                         <outlet property="detailTextOutput" destination="4SW-Xx-Zwm" id="cjJ-zz-Ca5"/>
                         <outlet property="nameTextInput" destination="ZBC-pf-igH" id="hhX-jV-zx1"/>
                     </connections>

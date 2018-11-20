@@ -8,14 +8,27 @@
 
 import Foundation
 
-enum NoteCategory: String, Codable {
+enum NoteCategory: Int, Codable, CaseIterable {
     
-    case work
-    case home
-    case health
-    case people
-    case documents
-    case finances
-    case other
+    case work = 0
+    case home = 1
+    case health = 2
+    case people = 3
+    case documents = 4
+    case finances = 5
+    case other = 6
+    
+    var description: String {
+        switch self {
+        case .work: return "Работа"
+        case .home   : return "Дом"
+        case .health  : return "Здоровье"
+        case .people : return "Люди"
+        case .documents: return "Документы"
+        case .finances   : return "Дом"
+        case .other  : return "Другое"
+        
+        }
+    }
     
 }

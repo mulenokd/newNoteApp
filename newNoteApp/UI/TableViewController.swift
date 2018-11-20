@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UITableViewController, UISearchBarDelegate {
     
     var notes = [Note]()
+    var tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
     
     override func viewDidLoad() {
         
@@ -22,6 +23,15 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated : Bool){
         super.viewWillAppear(animated)
+        
+        if tempNote.name != "" && tempNote.detailText != ""{
+            tempNote.dateCreated = Date().ruString
+            tempNote.dateModified = Date().ruString
+            notes.append(tempNote)
+            tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+        }
+        
+        ProjectManager().saveData(notes: notes)
         tableView.reloadData()
     }
         
@@ -36,7 +46,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         cell.detailTextLabel?.text = currentNote.dateModified
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -68,7 +78,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondVC = storyboard.instantiateViewController(withIdentifier: "detailNote") as! ViewController
-        secondVC.modalPresentationStyle = UIModalPresentationStyle.none
+        secondVC.note = tempNote
         present(secondVC, animated: true)
         
     }
