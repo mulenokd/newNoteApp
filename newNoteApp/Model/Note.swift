@@ -9,16 +9,23 @@
 import Foundation
 
 public class Note: Codable {
+    private var _name: String = ""
+    var name: String{
+        get{
+            return _name
+        }
+        set{
+            _name = String(newValue[..<newValue.index(newValue.startIndex, offsetBy: min(newValue.count, 50))])
+        }
+    }
     
-    var name: String
-    var dateCreated: String
-    var dateModified: String
-    var detailText: String
+    var dateCreated : String
+    var dateModified : String
+    var detailText : String
     var category : NoteCategory
     
-    init(name: String, dateCreated: String, dateModified: String, detailText: String, category : NoteCategory){
+    init(dateCreated: String, dateModified: String, detailText: String, category : NoteCategory){
         
-        self.name = name
         self.dateCreated = dateCreated
         self.dateModified = dateModified
         self.detailText = detailText

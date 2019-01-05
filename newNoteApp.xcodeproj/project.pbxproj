@@ -17,6 +17,7 @@
 		F6B81624215BDD43005201FC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81623215BDD43005201FC /* Note.swift */; };
 		F6B81635215BF21B005201FC /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81634215BF21B005201FC /* ExtensionDate.swift */; };
 		F6BA98CE2190612B00FBB3BB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA98CD2190612B00FBB3BB /* Project.swift */; };
+		F6DA888721D64FB8004669D4 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA888621D64FB8004669D4 /* SectionTableViewController.swift */; };
 		F6DF298B216F705800BC4262 /* NoteCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF298A216F705800BC4262 /* NoteCategory.swift */; };
 		F6DF298D216F707000BC4262 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DF298C216F707000BC4262 /* ProjectManager.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		F6B81623215BDD43005201FC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F6B81634215BF21B005201FC /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		F6BA98CD2190612B00FBB3BB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		F6DA888621D64FB8004669D4 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		F6DF298A216F705800BC4262 /* NoteCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCategory.swift; sourceTree = "<group>"; };
 		F6DF298C216F707000BC4262 /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 		F6B81621215BDC15005201FC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F6DA888621D64FB8004669D4 /* SectionTableViewController.swift */,
 				F634C9CB215CDC0100BADB1D /* TableViewController.swift */,
 				F634C9CD215E0A4B00BADB1D /* ViewController.swift */,
 				C46989B7215B2EB40036F080 /* Main.storyboard */,
@@ -246,6 +249,7 @@
 				F6B81635215BF21B005201FC /* ExtensionDate.swift in Sources */,
 				F6DF298D216F707000BC4262 /* ProjectManager.swift in Sources */,
 				F634C9CC215CDC0100BADB1D /* TableViewController.swift in Sources */,
+				F6DA888721D64FB8004669D4 /* SectionTableViewController.swift in Sources */,
 				F6BA98CE2190612B00FBB3BB /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +412,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UJJRBZ34B;
 				INFOPLIST_FILE = newNoteApp/Info.plist;
@@ -417,6 +422,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = App.newNoteApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -426,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UJJRBZ34B;
 				INFOPLIST_FILE = newNoteApp/Info.plist;
@@ -435,6 +442,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = App.newNoteApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

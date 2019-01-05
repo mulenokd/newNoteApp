@@ -21,14 +21,13 @@ enum NoteCategory: Int, Codable, CaseIterable {
     var description: String {
         switch self {
         case .work: return "Работа"
-        case .home   : return "Дом"
-        case .health  : return "Здоровье"
-        case .people : return "Люди"
+        case .home: return "Дом"
+        case .health: return "Здоровье"
+        case .people: return "Люди"
         case .documents: return "Документы"
-        case .finances   : return "Дом"
-        case .other  : return "Другое"
-        
+        case .finances: return "Деньги"
+        case .other: return "Другое"
+
         }
     }
-    
 }

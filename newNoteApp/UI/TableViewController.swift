@@ -8,17 +8,24 @@
 
 import UIKit
 
-class TableViewController: UITableViewController, UISearchBarDelegate {
+class TableViewController: UITableViewController {
     
     var notes = [Note]()
-    var tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+    var sectionNotes = [Note]()
+    var tempNote = Note(dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+    var section:Int = 0
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         notes = ProjectManager().loadData()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        if section == NoteCategory.allCases.last!.rawValue + 1 {
+            self.title = "Все заметки"
+        }
+        else{
+            self.title = NoteCategory(rawValue: section)?.description
+        }
     }
     
     override func viewWillAppear(_ animated : Bool){
@@ -28,22 +35,37 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
             tempNote.dateCreated = Date().ruString
             tempNote.dateModified = Date().ruString
             notes.append(tempNote)
-            tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+            tempNote = Note(dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+        }
+        
+        notes = notes.sorted(by: { $0.dateModified > $1.dateModified })
+        if section == NoteCategory.allCases.last!.rawValue + 1{
+            sectionNotes = notes
+        }
+        else{
+            sectionNotes.removeAll()
+            for note in notes {
+                if note.category.rawValue == section{
+                    sectionNotes.append(note)
+                }
+            }
         }
         
         ProjectManager().saveData(notes: notes)
         tableView.reloadData()
     }
-        
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return sectionNotes.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let currentNote = notes[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
+        let currentNote = sectionNotes[indexPath.row]
         cell.textLabel?.text = currentNote.name
         cell.detailTextLabel?.text = currentNote.dateModified
+        
         return cell
     }
     
@@ -53,7 +75,10 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            notes.remove(at: indexPath.row)
+            notes.removeAll(where: { (note) -> Bool in
+                return note === sectionNotes[indexPath.row]
+            })
+            sectionNotes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             ProjectManager().saveData(notes: notes)
         }
@@ -68,7 +93,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondVC = storyboard.instantiateViewController(withIdentifier: "detailNote") as! ViewController
-        secondVC.note = notes[indexPath.row]
+        secondVC.note = sectionNotes[indexPath.row]
         secondVC.isEdit = true
         present(secondVC, animated: true)
         

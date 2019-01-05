@@ -11,27 +11,38 @@ import UIKit
 class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
-    @IBOutlet weak var detailTextOutput: UITextView!
-    @IBOutlet weak var nameTextInput: UITextField!
-    @IBOutlet weak var actionSelectCategory: UIPickerView!
+    @IBOutlet weak var nameTextView: UITextView!
+    @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    var note = Note(name: "Название", dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
+    var note = Note(dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
     var isEdit = false
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        detailTextOutput.delegate = self
-        nameTextInput.text = note.name
-        detailTextOutput.text = note.detailText
+        nameTextView.delegate = self
+        detailTextView.delegate = self
         
-        self.actionSelectCategory.delegate = self
-        self.actionSelectCategory.dataSource = self
-        actionSelectCategory.selectRow(note.category.rawValue, inComponent: 0, animated: true)
+        nameTextView.text = note.name
+        detailTextView.text = note.detailText
         
-    }
-    
-    override func viewWillDisappear(_ animated : Bool){
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+        pickerView.selectRow(note.category.rawValue, inComponent: 0, animated: true)
+        
+        if nameTextView.text.isEmpty {
+            nameTextView.text = "Введите название заметки"
+            nameTextView.textColor = .lightGray
+        }
+        
+        if detailTextView.text.isEmpty {
+            detailTextView.text = "Запишите что-нибудь"
+            detailTextView.textColor = .lightGray
+        }
+        
+        scrollView.keyboardDismissMode = .onDrag
         
     }
     
@@ -51,54 +62,66 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         note.category = NoteCategory(rawValue: row)!
     }
     
-//    func Alert(title: String, message: String){
-//
-//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "Закрыть", style: .default, handler: { action in
-//            self.dismiss(animated: true, completion: nil)
-//        }))
-//        self.present(alertController, animated: true, completion: nil)
-//
-//    }
+    func Alert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Закрыть", style: .default, handler: { action in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if detailTextOutput.textColor == .lightGray {
-            detailTextOutput.text = nil
-            detailTextOutput.textColor = .black
+        if textView.textColor == .lightGray {
+            textView.text = nil
+            textView.textColor = .black
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        print("textView.contentSize")
+        print(textView.contentSize)
+        print("textView.frame.size.height")
+        print(textView.frame.size.height)
+        print("textView.contentSize.height")
+        print(textView.contentSize.height)
+        textView.frame.size.height = textView.contentSize.height
         
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if detailTextOutput.text.isEmpty {
-            detailTextOutput.text = "Запишите что-нибудь!"
-            detailTextOutput.textColor = .lightGray
+        if textView.text.isEmpty {
+            if textView == detailTextView{
+                textView.text = "Запишите что-нибудь"
+            }
+            else{
+                textView.text = "Введите название заметки"
+            }
+            textView.textColor = .lightGray
         }
     }
     
+    
     @IBAction func actionSetNote(_ sender: Any) {
-        
-        if isEdit {
-            
-            if note.detailText != detailTextOutput.text || note.name != nameTextInput.text {
-                note.dateModified = Date().ruString
-                note.detailText = detailTextOutput.text
-                note.name = nameTextInput.text!
+        if nameTextView.text!.count < 50{
+            if isEdit {
+                if note.detailText != detailTextView.text || note.name != nameTextView.text {
+                    note.dateModified = Date().ruString
+                    note.detailText = detailTextView.text
+                    note.name = nameTextView.text!
+                }
             }
-            
+            else{
+                note.dateCreated = Date().ruString
+                note.dateModified = Date().ruString
+                note.detailText = detailTextView.text
+                note.name = nameTextView.text!
+            }
+            self.dismiss(animated: true)
         }
         else{
-            
-            note.dateCreated = Date().ruString
-            note.dateModified = Date().ruString
-            note.detailText = detailTextOutput.text
-            note.name = nameTextInput.text!
-            
+            Alert(title: "Внимание", message: "Название не должно быть больше 50 символов" )
         }
-        
-        self.dismiss(animated: true)
-        
     }
     
     @IBAction func actionBack(_ sender: Any) {
