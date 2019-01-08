@@ -25,6 +25,9 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         nameTextView.delegate = self
         detailTextView.delegate = self
         
+        nameTextView.isScrollEnabled = false
+        detailTextView.isScrollEnabled = false
+        
         nameTextView.text = note.name
         detailTextView.text = note.detailText
         
@@ -41,7 +44,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
             detailTextView.text = "Запишите что-нибудь"
             detailTextView.textColor = .lightGray
         }
-        
+        print("viewDidLoad")
         scrollView.keyboardDismissMode = .onDrag
         
     }
@@ -79,14 +82,10 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     
     func textViewDidChange(_ textView: UITextView) {
         
-        print("textView.contentSize")
-        print(textView.contentSize)
-        print("textView.frame.size.height")
-        print(textView.frame.size.height)
-        print("textView.contentSize.height")
-        print(textView.contentSize.height)
-        textView.frame.size.height = textView.contentSize.height
-        
+        let fixedWidth = textView.frame.size.width
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+    
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -99,8 +98,10 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
             }
             textView.textColor = .lightGray
         }
+        
+//        scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width, height: (scrollView.frame.size.height - 300))
+        
     }
-    
     
     @IBAction func actionSetNote(_ sender: Any) {
         if nameTextView.text!.count < 50{
