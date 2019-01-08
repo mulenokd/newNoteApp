@@ -1,9 +1,9 @@
 //
-//  newNoteAppTests.swift
+//  NoteTests.swift
 //  newNoteAppTests
 //
-//  Created by Денис Гынгазов on 26/09/2018.
-//  Copyright © 2018 Муленок Дмитрий. All rights reserved.
+//  Created by Дмитрий on 09.01.2019.
+//  Copyright © 2019 Муленок Дмитрий. All rights reserved.
 //
 
 import XCTest
@@ -11,25 +11,20 @@ import XCTest
 
 class NoteTests: XCTestCase {
     
-    func testNameSetCorrectValue(){
-        //Description: Описание теста
-        //Тест name возврата корректного имени
-        //Setup: Подготовка объекта к тестированию
-        let setup = "Смирнов"
-        let note = Note(dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
-        note.name = setup
-        //Testing: Вызов тестируемого метода
-        let expected = "Смирнов";
-        let actual = note.name
-        //Assert: Сравнение результата
-        XCTAssertEqual(actual, expected)
+    func testNameSetСorrectValue() {
+        
+        let note = Note(name: "", dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
+        try? note.setName(newValue: "Смирнов")
+        let expected = "Смирнов"
+        XCTAssertEqual(note.name, expected)
     }
     
     func testNameSetIncorrectValue(){
         
-       let note = Note(dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
+        let setup = "Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов"
+        let note = Note(name: "", dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
         
-        XCTAssertThrowsError(try ) { error in
+        XCTAssertThrowsError(try note.setName(newValue: setup)) { error in
             XCTAssertEqual(error as? NameErrorList, NameErrorList.outOfRange)
         }
         
