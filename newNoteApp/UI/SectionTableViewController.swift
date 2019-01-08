@@ -34,7 +34,7 @@ class SectionTableViewController: UITableViewController{
             let nextScene =  segue.destination as! TableViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selectedSection = indexPath.row
-                nextScene.section = selectedSection
+                nextScene.sectionNum = selectedSection
             }
         }
     }

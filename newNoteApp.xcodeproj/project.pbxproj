@@ -10,7 +10,6 @@
 		C46989B4215B2EB40036F080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46989B3215B2EB40036F080 /* AppDelegate.swift */; };
 		C46989B9215B2EB40036F080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46989B7215B2EB40036F080 /* Main.storyboard */; };
 		C46989BE215B2EB40036F080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46989BC215B2EB40036F080 /* LaunchScreen.storyboard */; };
-		C46989C9215B2EB40036F080 /* newNoteAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46989C8215B2EB40036F080 /* newNoteAppTests.swift */; };
 		F634C9CA215BFC8E00BADB1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F634C9C9215BFC8E00BADB1D /* Assets.xcassets */; };
 		F634C9CC215CDC0100BADB1D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F634C9CB215CDC0100BADB1D /* TableViewController.swift */; };
 		F634C9CE215E0A4B00BADB1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F634C9CD215E0A4B00BADB1D /* ViewController.swift */; };
@@ -31,6 +30,11 @@
 		F660183E21E4673B00E2EFFA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660182D21E4673B00E2EFFA /* IQUITextFieldView+Additions.swift */; };
 		F660183F21E4673B00E2EFFA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660182E21E4673B00E2EFFA /* IQUIView+Hierarchy.swift */; };
 		F660184021E4673B00E2EFFA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660182F21E4673B00E2EFFA /* IQNSArray+Sort.swift */; };
+		F660184C21E49D2800E2EFFA /* NameErrorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660184B21E49D2800E2EFFA /* NameErrorList.swift */; };
+		F660184D21E49D2800E2EFFA /* NameErrorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660184B21E49D2800E2EFFA /* NameErrorList.swift */; };
+		F660184F21E4A67100E2EFFA /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660184E21E4A67100E2EFFA /* NoteTests.swift */; };
+		F660185121E4C15E00E2EFFA /* SectionTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */; };
+		F660185321E4C70700E2EFFA /* ProjectManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */; };
 		F6B81624215BDD43005201FC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81623215BDD43005201FC /* Note.swift */; };
 		F6B81635215BF21B005201FC /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81634215BF21B005201FC /* ExtensionDate.swift */; };
 		F6BA98CE2190612B00FBB3BB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA98CD2190612B00FBB3BB /* Project.swift */; };
@@ -56,7 +60,6 @@
 		C46989BD215B2EB40036F080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C46989BF215B2EB40036F080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C46989C4215B2EB40036F080 /* newNoteAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newNoteAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C46989C8215B2EB40036F080 /* newNoteAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newNoteAppTests.swift; sourceTree = "<group>"; };
 		C46989CA215B2EB40036F080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F634C9C9215BFC8E00BADB1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = newNoteApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F634C9CB215CDC0100BADB1D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,10 @@
 		F660182D21E4673B00E2EFFA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		F660182E21E4673B00E2EFFA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		F660182F21E4673B00E2EFFA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		F660184B21E49D2800E2EFFA /* NameErrorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameErrorList.swift; sourceTree = "<group>"; };
+		F660184E21E4A67100E2EFFA /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
+		F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewControllerTests.swift; sourceTree = "<group>"; };
+		F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerTests.swift; sourceTree = "<group>"; };
 		F6B81623215BDD43005201FC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F6B81634215BF21B005201FC /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
 		F6BA98CD2190612B00FBB3BB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -138,7 +145,9 @@
 		C46989C7215B2EB40036F080 /* newNoteAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				C46989C8215B2EB40036F080 /* newNoteAppTests.swift */,
+				F660184E21E4A67100E2EFFA /* NoteTests.swift */,
+				F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */,
+				F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */,
 				C46989CA215B2EB40036F080 /* Info.plist */,
 			);
 			path = newNoteAppTests;
@@ -227,8 +236,9 @@
 				F660181821E4673B00E2EFFA /* IQKeyboardManagerSwift */,
 				C46989B3215B2EB40036F080 /* AppDelegate.swift */,
 				F6B81623215BDD43005201FC /* Note.swift */,
-				F6DF298A216F705800BC4262 /* NoteCategory.swift */,
+				F660184B21E49D2800E2EFFA /* NameErrorList.swift */,
 				F6B81634215BF21B005201FC /* ExtensionDate.swift */,
+				F6DF298A216F705800BC4262 /* NoteCategory.swift */,
 				F6BA98CD2190612B00FBB3BB /* Project.swift */,
 				F6DF298C216F707000BC4262 /* ProjectManager.swift */,
 			);
@@ -360,6 +370,7 @@
 				F660183821E4673B00E2EFFA /* IQKeyboardManagerConstants.swift in Sources */,
 				F6DF298D216F707000BC4262 /* ProjectManager.swift in Sources */,
 				F634C9CC215CDC0100BADB1D /* TableViewController.swift in Sources */,
+				F660184C21E49D2800E2EFFA /* NameErrorList.swift in Sources */,
 				F660183D21E4673B00E2EFFA /* IQUIViewController+Additions.swift in Sources */,
 				F660183F21E4673B00E2EFFA /* IQUIView+Hierarchy.swift in Sources */,
 				F660183321E4673B00E2EFFA /* IQBarButtonItem.swift in Sources */,
@@ -376,7 +387,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C46989C9215B2EB40036F080 /* newNoteAppTests.swift in Sources */,
+				F660184D21E49D2800E2EFFA /* NameErrorList.swift in Sources */,
+				F660185321E4C70700E2EFFA /* ProjectManagerTests.swift in Sources */,
+				F660184F21E4A67100E2EFFA /* NoteTests.swift in Sources */,
+				F660185121E4C15E00E2EFFA /* SectionTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,6 @@ enum NoteCategory: Int, Codable, CaseIterable {
         case .documents: return "Документы"
         case .finances: return "Деньги"
         case .other: return "Другое"
-
         }
     }
 }

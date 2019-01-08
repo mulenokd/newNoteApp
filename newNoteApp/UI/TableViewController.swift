@@ -12,20 +12,22 @@ class TableViewController: UITableViewController {
     
     var notes = [Note]()
     var sectionNotes = [Note]()
-    var tempNote = Note(dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
-    var section:Int = 0
+    var tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+    var sectionNum:Int = 0
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         notes = ProjectManager().loadData()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        if section == NoteCategory.allCases.last!.rawValue + 1 {
+        
+        if sectionNum == NoteCategory.allCases.last!.rawValue + 1 {
             self.title = "Все заметки"
         }
         else{
-            self.title = NoteCategory(rawValue: section)?.description
+            self.title = NoteCategory(rawValue: sectionNum)?.description
         }
+        
     }
     
     override func viewWillAppear(_ animated : Bool){
@@ -35,17 +37,18 @@ class TableViewController: UITableViewController {
             tempNote.dateCreated = Date().ruString
             tempNote.dateModified = Date().ruString
             notes.append(tempNote)
-            tempNote = Note(dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
+            tempNote = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
         }
         
         notes = notes.sorted(by: { $0.dateModified > $1.dateModified })
-        if section == NoteCategory.allCases.last!.rawValue + 1{
+        
+        if sectionNum == NoteCategory.allCases.last!.rawValue + 1{
             sectionNotes = notes
         }
         else{
             sectionNotes.removeAll()
             for note in notes {
-                if note.category.rawValue == section{
+                if note.category.rawValue == sectionNum{
                     sectionNotes.append(note)
                 }
             }

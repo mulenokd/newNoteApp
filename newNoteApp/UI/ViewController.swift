@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var note = Note(dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
+    var note = Note(name: "", dateCreated: "", dateModified: "", detailText: "", category: NoteCategory.home)
     var isEdit = false
     
     override func viewDidLoad() {
@@ -104,23 +104,23 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     }
     
     @IBAction func actionSetNote(_ sender: Any) {
-        if nameTextView.text!.count < 50{
+        do {
             if isEdit {
                 if note.detailText != detailTextView.text || note.name != nameTextView.text {
+                    try note.setName(newValue: nameTextView.text)
+                    print("after catch")
                     note.dateModified = Date().ruString
                     note.detailText = detailTextView.text
-                    note.name = nameTextView.text!
                 }
-            }
-            else{
+            }else{
+                try note.setName(newValue: nameTextView.text)
+                print("after catch")
                 note.dateCreated = Date().ruString
                 note.dateModified = Date().ruString
                 note.detailText = detailTextView.text
-                note.name = nameTextView.text!
             }
             self.dismiss(animated: true)
-        }
-        else{
+        } catch {
             Alert(title: "Внимание", message: "Название не должно быть больше 50 символов" )
         }
     }
