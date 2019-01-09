@@ -104,6 +104,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     }
     
     @IBAction func actionSetNote(_ sender: Any) {
+        
         do {
             if isEdit {
                 if note.detailText != detailTextView.text || note.name != nameTextView.text {
@@ -123,6 +124,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         } catch {
             Alert(title: "Внимание", message: "Название не должно быть больше 50 символов" )
         }
+        
     }
     
     @IBAction func actionBack(_ sender: Any) {

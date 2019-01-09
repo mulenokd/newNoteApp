@@ -18,6 +18,9 @@ public class Note: Codable {
     
     public func setName(newValue: String) throws {
         print(newValue.count)
+        if newValue.count < 1 {
+            throw NameErrorList.isEmpty
+        }
         if newValue.count > 50 {
             throw NameErrorList.outOfRange
         }

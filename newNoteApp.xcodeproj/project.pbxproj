@@ -32,7 +32,6 @@
 		F660184021E4673B00E2EFFA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660182F21E4673B00E2EFFA /* IQNSArray+Sort.swift */; };
 		F660184C21E49D2800E2EFFA /* NameErrorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660184B21E49D2800E2EFFA /* NameErrorList.swift */; };
 		F660184D21E49D2800E2EFFA /* NameErrorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660184B21E49D2800E2EFFA /* NameErrorList.swift */; };
-		F660185121E4C15E00E2EFFA /* SectionTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */; };
 		F660185321E4C70700E2EFFA /* ProjectManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */; };
 		F6B81624215BDD43005201FC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81623215BDD43005201FC /* Note.swift */; };
 		F6B81635215BF21B005201FC /* ExtensionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B81634215BF21B005201FC /* ExtensionDate.swift */; };
@@ -83,7 +82,6 @@
 		F660182E21E4673B00E2EFFA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		F660182F21E4673B00E2EFFA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		F660184B21E49D2800E2EFFA /* NameErrorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameErrorList.swift; sourceTree = "<group>"; };
-		F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewControllerTests.swift; sourceTree = "<group>"; };
 		F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagerTests.swift; sourceTree = "<group>"; };
 		F6B81623215BDD43005201FC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F6B81634215BF21B005201FC /* ExtensionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDate.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				F6D2FA1221E51487007E681E /* NoteTests.swift */,
-				F660185021E4C15E00E2EFFA /* SectionTableViewControllerTests.swift */,
 				F660185221E4C70700E2EFFA /* ProjectManagerTests.swift */,
 				C46989CA215B2EB40036F080 /* Info.plist */,
 			);
@@ -237,10 +234,10 @@
 				C46989B3215B2EB40036F080 /* AppDelegate.swift */,
 				F6B81623215BDD43005201FC /* Note.swift */,
 				F660184B21E49D2800E2EFFA /* NameErrorList.swift */,
-				F6B81634215BF21B005201FC /* ExtensionDate.swift */,
 				F6DF298A216F705800BC4262 /* NoteCategory.swift */,
 				F6BA98CD2190612B00FBB3BB /* Project.swift */,
 				F6DF298C216F707000BC4262 /* ProjectManager.swift */,
+				F6B81634215BF21B005201FC /* ExtensionDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,7 +386,6 @@
 			files = (
 				F660184D21E49D2800E2EFFA /* NameErrorList.swift in Sources */,
 				F660185321E4C70700E2EFFA /* ProjectManagerTests.swift in Sources */,
-				F660185121E4C15E00E2EFFA /* SectionTableViewControllerTests.swift in Sources */,
 				F6D2FA1321E51487007E681E /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

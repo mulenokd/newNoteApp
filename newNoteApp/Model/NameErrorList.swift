@@ -9,5 +9,8 @@
 import Foundation
 
 enum NameErrorList: Error{
+    
     case outOfRange
+    case isEmpty
+    
 }

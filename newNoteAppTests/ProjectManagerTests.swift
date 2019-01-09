@@ -13,28 +13,23 @@ class ProjectManagerTests: XCTestCase{
     
     func testSaveCorrectData(){
         
-        func saveData(notes: [Note]){
-            
-            let encoder = JSONEncoder()
-            let encoded = try? encoder.encode(notes)
-            
-            UserDefaults.standard.set(encoded, forKey: "notesData")
-            UserDefaults.standard.synchronize()
-            
-        }
+        let notes = [Note(name: "Заметка 1", dateCreated: "1 янв 2019", dateModified: "1 янв 2019", detailText: "Текст заметки", category: NoteCategory.home),
+                     Note(name: "Заметка 2", dateCreated: "1 янв 2019", dateModified: "1 янв 2019", detailText: "Текст заметки", category: NoteCategory.home),
+                     Note(name: "Заметка 3", dateCreated: "1 янв 2019", dateModified: "1 янв 2019", detailText: "Текст заметки", category: NoteCategory.home)]
         
-    }
-    
-    func testSaveIncorrectData(){
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder()
+        let encoded = try? encoder.encode(notes)
+        let decoded = try? decoder.decode(Array.self, from: encoded!) as [Note]
         
-        func saveData(notes: [Note]){
-
-            let encoder = JSONEncoder()
-            let encoded = try? encoder.encode(notes)
-            
-            UserDefaults.standard.set(encoded, forKey: "notesData")
-            UserDefaults.standard.synchronize()
-            
+        let notesDecoded:[Note] = decoded!
+        
+        for index in 0...notes.count - 1 {
+            XCTAssertEqual(notes[index].name, notesDecoded[index].name)
+            XCTAssertEqual(notes[index].dateCreated, notesDecoded[index].dateCreated)
+            XCTAssertEqual(notes[index].dateModified, notesDecoded[index].dateModified)
+            XCTAssertEqual(notes[index].detailText, notesDecoded[index].detailText)
+            XCTAssertEqual(notes[index].category, notesDecoded[index].category)
         }
         
     }

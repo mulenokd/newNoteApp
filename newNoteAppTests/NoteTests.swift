@@ -20,7 +20,16 @@ class NoteTests: XCTestCase {
         
     }
     
-    func testNameSetIncorrectValue(){
+    func testNameSetEmptyValue(){
+        
+        let setup = ""
+        let note = Note(name: "", dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
+        
+        XCTAssertThrowsError(try note.setName(newValue: setup))
+        
+    }
+    
+    func testNameSetLongValue(){
         
         let setup = "Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов"
         let note = Note(name: "", dateCreated: "String", dateModified: "String", detailText: "Текст заметки", category: NoteCategory.home)
